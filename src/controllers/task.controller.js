@@ -2,7 +2,7 @@ import { tasks, projects, users } from "../data/data.js";
 
 export function getAllTasks(req, res) {
   const { status, priority, projectId, assignedTo, search } = req.query;
-  const filteredTasks = [...tasks];
+  let filteredTasks = [...tasks];
   if (status !== undefined) {
     if (
       !filteredTasks.map((task) => task.status).includes(status.trim()) ||
